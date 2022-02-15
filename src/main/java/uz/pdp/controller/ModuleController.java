@@ -28,11 +28,19 @@ ModuleService moduleService;
         model.addAttribute("moduleList",allModules);
         return "view-modules";
     }
+    @GetMapping("{id}")
+    public String getModuleById(@PathVariable(required = false)String id ,Model model){
+        UUID uuid = UUID.fromString(id);
+        ModuleDto module=moduleService.getAllModules(uuid);
+        List<CourseDto> allCourses = courseService.getAllCourses();
+        model.addAttribute("courseList",allCourses);
+        model.addAttribute("selectModule",module);
+        return "module-form";
+    }
     @GetMapping(    "/addModule")
     public String getModule(@ModelAttribute("module" ) ModuleDto moduleDto,Model model){
-    String str=moduleService.addModules(moduleDto);
         List<CourseDto> allCourses = courseService.getAllCourses();
-        model.addAttribute("message",str);
+
         model.addAttribute("courseList",allCourses);
     return "module-form";
     }
@@ -43,13 +51,6 @@ ModuleService moduleService;
         return "redirect:/modules";
     }
 
-    @GetMapping("{id}")
-    public String getModuleById(@PathVariable(required = false)String id ,Model model){
-        UUID uuid = UUID.fromString(id);
-        ModuleDto module=moduleService.getAllModules(uuid);
-        model.addAttribute("selectModule",module);
-        return "module-form";
-    }
     @DeleteMapping("/{id}")
     public String deleteModule(@PathVariable String id,Model model){
         UUID uuid = UUID.fromString(id);

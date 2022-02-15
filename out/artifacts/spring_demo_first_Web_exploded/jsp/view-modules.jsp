@@ -47,7 +47,8 @@
                         </td>
                         <td>${module.active == true ? "Active":"No active"}</td>
                         <td>${module.price}</td>
-                        <td><a href="/modules/${module.id}" class="btn btn-warning">Edit</a> </td>
+                        <td><a href="/modules/${module.id}" class="btn btn-warning">Edit
+                        </a> </td>
                         <td><button class="btn btn-danger"
                                     onclick="makeDELETErequest('/modules/${module.id}')">Delete
                         </button> </td>

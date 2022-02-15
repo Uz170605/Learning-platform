@@ -30,20 +30,21 @@ public class ModuleDao {
         return moduleDtoList;
     }
     public ModuleDto getModuleById(UUID uuid){
-        String sql="select * from modules where id="+uuid;
+        String sql="select * from modules where id='"+uuid+"'";
         return  jdbcTemplate.queryForObject(sql,(rs,row)->{
             ModuleDto moduleDto=new ModuleDto();
             moduleDto.setId(UUID.fromString(rs.getString(1)));
             moduleDto.setName(rs.getString(2));
-            moduleDto.setPrice(rs.getDouble(3));
-            moduleDto.setActive(rs.getBoolean(4));
+            moduleDto.setActive(rs.getBoolean(3));
+            moduleDto.setCourseId(UUID.fromString(rs.getString(4)));
+            moduleDto.setPrice(rs.getDouble(5));
             return moduleDto;
         });
     }
     public int addModule(ModuleDto moduleDto){
-        String sql="insert into modules" +
-                "( name, isactive, course_id, price)values ('"+moduleDto.getName()+"',"+moduleDto.isActive()+","+moduleDto.getCourseId()+","+moduleDto.getPrice()+") "
-               ;
+        String sql="insert into modules(name, isactive, course_id, price) VALUES (\n" +
+                "        '"+moduleDto.getName()+"',"+moduleDto.isActive()+",'"+moduleDto.getCourseId()+"',"+moduleDto.getPrice()+"\n" +
+                " )";
         return jdbcTemplate.update(sql);
     }
     public int deleteModule(UUID uuid){
@@ -51,19 +52,11 @@ public class ModuleDao {
 
         return jdbcTemplate.update(sql);
     }
-
-
-
-
-
-
-
-
-//    public int save(ModuleDto moduleDto){
-//        String sql="insert into modules(name, isactive, course_id, price) VALUES ('"+moduleDto.getName()+
-//                "',"+moduleDto.isActive()+",'"+moduleDto.getCourseId()+"',"+moduleDto.getPrice()+
-//                ")";
-//        return  jdbcTemplate.update(sql);
-//    }
+    public int editModule(ModuleDto moduleDto){
+        String sql="update modules set name='"+moduleDto.getName()+"',isactive="+moduleDto.isActive()+"," +
+                "course_id='"+moduleDto.getCourseId()+"'," +
+                "price="+moduleDto.getPrice()+" where id='"+moduleDto.getId()+"';";
+        return jdbcTemplate.update(sql);
+    }
 
 }

@@ -4,6 +4,7 @@ package uz.pdp.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uz.pdp.dao.ModuleDao;
+import uz.pdp.dto.CourseDto;
 import uz.pdp.dto.ModuleDto;
 
 import java.util.List;
@@ -21,14 +22,14 @@ public class ModuleService {
 
     public String addModules(ModuleDto moduleDto) {
         if (moduleDto.getId() != null) {
-            if (modelDao.addModule(moduleDto) != 0) {
+            if (modelDao.editModule(moduleDto) != 0) {
                 return "Successfully edited";
             } else {
                 return "Could not edited!";
             }
         } else {
             if (modelDao.addModule(moduleDto) != 0) {
-                return "Successfuly added!";
+                return "Successfully added!";
             } else {
                 return "Could not added!";
             }

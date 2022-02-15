@@ -12,7 +12,7 @@ import java.util.UUID;
 public class ModuleDto {
     private UUID id;
     private String name;
-    private boolean isActive;
     private double price;
     private UUID courseId;
+    private boolean isActive;
 }

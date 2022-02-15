@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Azizjon
@@ -24,37 +25,37 @@
     <div class="col-md-6 offset-3 " style="background-color: white; border-radius:10px ;border: 2px solid gray;box-shadow: 5px 10px 8px #888888;z-index: 11;" >
         <form action="/users" method="post" class="mt-5 mb-5">
             <div class="form-group">
-                <input hidden value="${selectCourse.id ==null ? null:selectCourse.id}" name="id" type="text" class="form-control">
+                <input hidden value="${selectUser.id ==null ? null:selectUser.id}" name="id" type="text" class="form-control">
             </div>
             <div class="form-group">
                 <label for="UserName">First name: </label>
-                <input value="${selectCourse.name}" name="firstName" type="text" class="form-control" id="UserName"
+                <input value="${selectUser.firstName}" name="firstName" type="text" class="form-control" id="UserName"
                        placeholder="Enter first name here">
             </div>
             <div class="form-group">
                 <label for="lastName">Last name: </label>
-                <input value="${selectCourse.price}" name="lastName" type="text" class="form-control"
+                <input value="${selectUser.lastName}" name="lastName" type="text" class="form-control"
                        id="lastName"
                        placeholder="Enter last name here">
             </div>
 
             <div class="form-group">
                 <label for="phoneNumber">Phone number: </label>
-                <input value="${selectCourse.price}" name="phoneNumber" type="tel" class="form-control"
+                <input value="${selectUser.phoneNumber}" name="phoneNumber" type="tel" class="form-control"
                        id="phoneNumber"
                        placeholder="Enter phone number here">
             </div>
 
             <div class="form-group">
-                <label for="email">Phone number: </label>
-                <input value="${selectCourse.price}" name="email" type="email" class="form-control"
+                <label for="email">Email : </label>
+                <input value="${selectUser.email}" name="email" type="email" class="form-control"
                        id="email"
                        placeholder="Enter email here">
             </div>
 
             <div class="form-group">
-                <label for="password">Phone number: </label>
-                <input value="${selectCourse.price}" name="password" type="password" class="form-control"
+                <label for="password">Password: </label>
+                <input value="${selectUser.password}" name="password" type="password" class="form-control"
                        id="password"
                        placeholder="Enter password here">
             </div>
@@ -62,12 +63,12 @@
             <div class="form-group">
                 <label for="bio">Bio: </label>
                 <textarea  name="bio" type="text" class="form-control"
-                           id="bio" placeholder="Enter course description here">${selectCourse.description}</textarea>
+                           id="bio" placeholder="Enter course description here">${selectUser.bio}</textarea>
             </div>
 
-            <select required  aria-invalid="true" id="role" placeholder="Search role or select" multiple name="authorsId">
-                <c:forEach var="author" items="${authors}">
-                    <option  value="${author.id}" >${author.firstName} ${author.lastName}</option>
+            <select required   id="role" placeholder="Search role or select" multiple name="role">
+                <c:forEach var="selectRole" items="${roles}">
+                    <option  value="${selectRole.id}" >${selectRole.name}</option>
                 </c:forEach>
             </select>
 

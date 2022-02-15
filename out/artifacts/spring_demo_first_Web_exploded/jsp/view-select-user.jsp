@@ -24,6 +24,7 @@
         <p><b>Email:</b> ${author.email}</p>
         <p><b>Bio:</b> </p>
         <p>${author.bio}</p>
+
        <h6 style="color: #00cc00;"><b>Author's courses</b></h6>
         <c:forEach var="course" items="${author.courses}">
             <p><a href="/courses/courseAllData/${course.id}" style="color: black;">${course.name}</a></p>
