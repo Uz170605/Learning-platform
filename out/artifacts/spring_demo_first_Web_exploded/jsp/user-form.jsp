@@ -29,57 +29,49 @@
             <div class="form-group">
                 <label for="UserName">First name: </label>
                 <input value="${selectCourse.name}" name="firstName" type="text" class="form-control" id="UserName"
-                       placeholder="Enter course name here">
+                       placeholder="Enter first name here">
             </div>
             <div class="form-group">
-                <label for="coursePrice">Price: </label>
-                <input value="${selectCourse.price}" name="price" type="number" class="form-control"
-                       id="coursePrice"
-                       placeholder="Enter course price here">
+                <label for="lastName">Last name: </label>
+                <input value="${selectCourse.price}" name="lastName" type="text" class="form-control"
+                       id="lastName"
+                       placeholder="Enter last name here">
             </div>
 
             <div class="form-group">
-                <label for="courseDescription">Description: </label>
-                <textarea  name="description" type="text" class="form-control"
-                           id="courseDescription" placeholder="Enter course description here">${selectCourse.description}</textarea>
+                <label for="phoneNumber">Phone number: </label>
+                <input value="${selectCourse.price}" name="phoneNumber" type="tel" class="form-control"
+                       id="phoneNumber"
+                       placeholder="Enter phone number here">
             </div>
-
 
             <div class="form-group">
-
-
-                <label for="authors">Authors: </label>
-
-                <select required=${selectCourse.id != null ? "": "required" }  aria-invalid="true" id="authors" placeholder="Search author name" multiple name="authorsId">
-                    <c:forEach var="author" items="${authors}">
-                        <option  value="${author.id}" >${author.firstName} ${author.lastName}</option>
-                    </c:forEach>
-                </select>
-
-                <%--                    <select id = "authors" class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here..">--%>
-                <%--                        <c:forEach var="author" items="${authors}">--%>
-                <%--                            <option value="${author.id}">${author.firstName}</option>--%>
-                <%--                        </c:forEach>--%>
-                <%--                    </select>--%>
-
+                <label for="email">Phone number: </label>
+                <input value="${selectCourse.price}" name="email" type="email" class="form-control"
+                       id="email"
+                       placeholder="Enter email here">
             </div>
 
-
-
-
-
-
-            <div class="form-check my-4">
-                <label class="form-check-label mr-2" for="status">Is active: </label>
-                <input
-                <c:if test="${selectCourse.active == true}">
-                        checked
-                </c:if>
-                        name="active"
-                        type="checkbox"
-                        class="form-check-input ml-0 mt-2 mb-0"
-                        id="status">
+            <div class="form-group">
+                <label for="password">Phone number: </label>
+                <input value="${selectCourse.price}" name="password" type="password" class="form-control"
+                       id="password"
+                       placeholder="Enter password here">
             </div>
+
+            <div class="form-group">
+                <label for="bio">Bio: </label>
+                <textarea  name="bio" type="text" class="form-control"
+                           id="bio" placeholder="Enter course description here">${selectCourse.description}</textarea>
+            </div>
+
+            <select required  aria-invalid="true" id="role" placeholder="Search role or select" multiple name="authorsId">
+                <c:forEach var="author" items="${authors}">
+                    <option  value="${author.id}" >${author.firstName} ${author.lastName}</option>
+                </c:forEach>
+            </select>
+
+
             <button type="submit" class="btn btn-success">Save</button>
         </form>
     </div>
@@ -117,7 +109,16 @@
 
 
 
-
+<script>
+    $(document).ready(function (){
+        var multipleCancelButton = new Choices('#role',{
+            removeItemButton: true,
+            maxItemCount: 5,
+            searchResultLimit: 5,
+            renderChoiceLimit: 5
+        });
+    });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>

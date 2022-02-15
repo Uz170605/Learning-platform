@@ -1,0 +1,46 @@
+package uz.pdp.service;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import uz.pdp.dao.ModuleDao;
+import uz.pdp.dto.ModuleDto;
+
+import java.util.List;
+import java.util.UUID;
+
+@Service
+public class ModuleService {
+    @Autowired
+    ModuleDao modelDao;
+
+    public List<ModuleDto> getAllModules() {
+        List<ModuleDto> moduleDtoList = modelDao.getAllModules();
+        return moduleDtoList;
+    }
+
+    public String addModules(ModuleDto moduleDto) {
+        if (moduleDto.getId() != null) {
+            if (modelDao.addModule(moduleDto) != 0) {
+                return "Successfully edited";
+            } else {
+                return "Could not edited!";
+            }
+        } else {
+            if (modelDao.addModule(moduleDto) != 0) {
+                return "Successfuly added!";
+            } else {
+                return "Could not added!";
+            }
+        }
+    }
+    public String delete(UUID uuid){
+        if(modelDao.deleteModule(uuid)==0){
+            return "Successfully delete";
+        }else return "Unsuccessfully delete";
+    }
+    public ModuleDto getAllModules(UUID uuid){
+        ModuleDto moduleDto=modelDao.getModuleById(uuid);
+        return moduleDto;
+    }
+}
