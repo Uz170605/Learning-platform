@@ -12,7 +12,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import uz.pdp.dao.CourseDao;
+import uz.pdp.dao.LessonDao;
 import uz.pdp.dao.UserDao;
+import uz.pdp.service.LessonService;
 import uz.pdp.service.UserService;
 
 import javax.sql.DataSource;
@@ -60,4 +62,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public UserService userService(){
         return new UserService();
     }
+
+    @Bean
+    public LessonService lessonService(){return new LessonService();}
+
+    @Bean
+    public LessonDao lessonDao(){return new LessonDao();}
 }
