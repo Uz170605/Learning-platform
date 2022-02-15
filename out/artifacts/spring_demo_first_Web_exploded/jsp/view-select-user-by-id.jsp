@@ -18,18 +18,18 @@
 
 <div class="row mt-5 ml-0 mr-0"  style="height: 400px;">
     <div class="col-md-6 offset-3" style="background-color: white; border-radius:10px ;border: 2px solid gray;box-shadow: 5px 10px 8px #888888;z-index: 11;">
-        <p class="mt-5"><b>First name:</b> ${author.firstName}</p>
-        <p><b>Last name: </b> ${author.lastName}</p>
-        <p><b>Phone number:</b> ${author.phoneNumber}</p>
-        <p><b>Email:</b> ${author.email}</p>
+        <p class="mt-5"><b>First name:</b> ${user.firstName}</p>
+        <p><b>Last name: </b> ${user.lastName}</p>
+        <p><b>Phone number:</b> ${user.phoneNumber}</p>
+        <p><b>Email:</b> ${user.email}</p>
+        <p><b>Password: </b>${user.password}</p>
         <p><b>Bio:</b> </p>
-        <p>${author.bio}</p>
-
-       <h6 style="color: #00cc00;"><b>Author's courses</b></h6>
-        <c:forEach var="course" items="${author.courses}">
-            <p><a href="/courses/courseAllData/${course.id}" style="color: black;">${course.name}</a></p>
+        <p>${user.bio}</p>
+        <h6 style="color: #00cc00;"><b>User roles</b></h6>
+        <c:forEach var="role" items="${user.roles}">
+            <p>${role.name}</p>
         </c:forEach>
-        <a href="/courses" class="btn btn-primary mt-3 mb-5"> Back </a>
+        <a href="/users" class="btn btn-primary mt-3 mb-5"> Back </a>
     </div>
 </div>
 
