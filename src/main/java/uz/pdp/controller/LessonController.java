@@ -26,13 +26,13 @@ public class LessonController {
         return "view-lessons";
     }
 
-//    @GetMapping("/lessonAllData/{id}")
-//    public String getLessonByIdWithAuthor(@PathVariable(required = false) String id, Model model){
-//        UUID id1 =UUID.fromString(id);
-//        LessonDto lessonById = lessonService.getLessonById(id1);
-//        model.addAttribute("selectLesson",lessonById);
-//        return "view-select-lesson";
-//    }
+    @GetMapping("/lessonAllData/{id}")
+    public String getLessonByIdWithAuthor(@PathVariable(required = false) String id, Model model){
+        UUID id1 =UUID.fromString(id);
+        LessonDto lessonById = lessonService.getLessonById(id1);
+        model.addAttribute("selectLesson",lessonById);
+        return "view-select-lesson";
+    }
 //    @GetMapping("/{id}")
 //    public String getLessonById(@PathVariable(required = false) String id, Model model){
 //        UUID id1 =UUID.fromString(id);
@@ -41,11 +41,11 @@ public class LessonController {
 //        model.addAttribute("selectLesson",lessonById);
 //        return "lesson-form";
 //    }
-//    @GetMapping("/addLesson")
-//    public String getLesson(Model model){
-//        model.addAttribute("authors",userService.getAllMentors());
-//        return "lesson-form";
-//    }
+    @GetMapping("/addLesson")
+    public String getLesson(Model model){
+        model.addAttribute("modules",lessonService.getAllModules());
+        return "lesson-form";
+    }
 //
 //    @PostMapping
 //    public String addLesson(@ModelAttribute("lessons") LessonDto lessonDto, Model model){

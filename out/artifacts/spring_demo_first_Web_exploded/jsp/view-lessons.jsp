@@ -33,9 +33,9 @@
                   <tr>
                       <th scope="col">#</th>
                       <th scope="col">Name</th>
-                      <th scope="col">Author</th>
-                      <th scope="col">Price</th>
-                      <th scope="col">Is active</th>
+                      <th scope="col">Lesson video</th>
+                      <th scope="col">Task guide</th>
+                      <th scope="col">Lesson guide</th>
                       <th scope="col">Edit</th>
                       <th scope="col">Delete</th>
                   </tr>

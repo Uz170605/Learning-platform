@@ -41,7 +41,7 @@ public class LessonDao {
     }
 
 //    public int addLesson(LessonDto lessonDto) {
-//        String sqlQuery = "Insert into lessons(name,price,is_active,description) values('" + lessonDto.getName() + "'," + lessonDto.getPrice() + "," + lessonDto.isActive() + ",'"+lessonDto.getDescription()+"') returning id";
+//        String sqlQuery ="Insert into lessons(name, module_id, guide) values('" + lessonDto.getName() + "'," + lessonDto + "," + lessonDto.isActive() + ",'"+lessonDto.getDescription()+"') returning id";
 //        String idStr = jdbcTemplate.queryForObject(sqlQuery, (rs, rowNum) -> rs.getString("id"));
 //        UUID uuid = UUID.fromString(Objects.requireNonNull(idStr));
 //        int res=0;
@@ -59,25 +59,25 @@ public class LessonDao {
 //
 //        return res-res1;
 //    }
-//
-//    public LessonDto getLessonById(UUID id) {
-//        String sqlQuery = "select * from get_all_lessons where id='" + id+"'";
-//        return  jdbcTemplate.queryForObject(sqlQuery, (rs, row) -> {
-//            LessonDto lessonDto = new LessonDto();
-//            lessonDto.setId(UUID.fromString(rs.getString(1)));
-//            lessonDto.setName(rs.getString(2));
-//            lessonDto.setPrice(rs.getDouble(3));
-//            lessonDto.setActive(rs.getBoolean(5));
-//            lessonDto.setDescription(rs.getString(4));
+
+    public LessonDto getLessonById(UUID id) {
+        String sqlQuery = "select * from get_all_lessons where lesson_id ='" + id+"'";
+        return  jdbcTemplate.queryForObject(sqlQuery, (rs, row) -> {
+            LessonDto lessonDto = new LessonDto();
+            lessonDto.setId(UUID.fromString(rs.getString(1)));
+            lessonDto.setName(rs.getString(2));
+            lessonDto.setVideo(rs.getString(3));
+            lessonDto.setTask(rs.getString(4));
+            lessonDto.setGuide(rs.getString(5));
 //            Array authors = rs.getArray(6);
 //
 //            Type listType = new TypeToken<ArrayList<UserDto>>(){}.getType();
 //            List<UserDto> authorList = new Gson().fromJson(authors.toString(), listType);
 //
 //            lessonDto.setAuthors(authorList);
-//            return lessonDto;
-//        });
-//    }
+            return lessonDto;
+        });
+    }
 //
 //    public int editLesson(LessonDto lessonDto) {
 //            int res2= 0;

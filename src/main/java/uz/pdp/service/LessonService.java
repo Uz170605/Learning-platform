@@ -44,8 +44,8 @@ public class LessonService {
 //        }
 //    }
 //
-//    public LessonDto getLessonById(UUID id) {
-//        LessonDto lessonDto = lessonDao.getLessonById(id);
-//        return lessonDto;
-//    }
+    public LessonDto getLessonById(UUID id) {
+        LessonDto lessonDto = lessonDao.getLessonById(id);
+        return lessonDto;
+    }
 }
