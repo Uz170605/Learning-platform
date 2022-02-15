@@ -8,10 +8,6 @@
           <element id="module-output" name="spring-demo-first" />
           <element id="library" level="application" name="choices" />
           <element id="module-output" name="Learning-platform" />
-          <element id="library" level="application" name="bootstrap" />
-          <element id="library" level="application" name="chosen.jquery" />
-          <element id="library" level="application" name="jquery" />
-          <element id="library" level="application" name="popper.js" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: javax.servlet.jsp:javax.servlet.jsp-api:2.3.3" />

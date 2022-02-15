@@ -12,9 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import uz.pdp.dao.CourseDao;
-import uz.pdp.dao.LessonDao;
 import uz.pdp.dao.UserDao;
-import uz.pdp.service.LessonService;
 import uz.pdp.service.UserService;
 
 import javax.sql.DataSource;
@@ -47,9 +45,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public JdbcTemplate jdbcTemplate(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/learning_platform_team");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/learning_platform");
         dataSource.setUsername("postgres");
-        dataSource.setPassword("root123");
+        dataSource.setPassword("avaz1999");
+
         return new JdbcTemplate(dataSource);
     }
 
@@ -63,9 +62,4 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return new UserService();
     }
 
-    @Bean
-    public LessonService lessonService(){return new LessonService();}
-
-    @Bean
-    public LessonDao lessonDao(){return new LessonDao();}
 }

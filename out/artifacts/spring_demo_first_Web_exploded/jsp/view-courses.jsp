@@ -28,7 +28,7 @@
              </c:choose>
           <a href="/courses/addCourse" class="btn btn-success"> + Add</a>
           <div class="row mt-4">
-              <table class="table table-hover table-responsive-sm table-striped">
+              <table class="`table table-hover table-responsive-sm table-striped">
                   <thead>
                   <tr>
                       <th scope="col">#</th>
@@ -63,17 +63,6 @@
           </div>
          </div>
      </div>
-
-
-
-
-
-
-
-
-
-
-
 
      <script>
          function makePUTrequest() {
