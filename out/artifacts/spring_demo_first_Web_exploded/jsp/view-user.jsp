@@ -46,8 +46,8 @@
                 <c:forEach var="user" step="1" items="${users}">
                     <tr>
                         <th scope="row"> ⚫️ </th>
-                       <td>${user.firstName}</td>
-                       <td>${user.lastName}</td>
+                        <td><a href="/users/userData/${user.id}">${user.firstName}</a></td>
+                        <td><a href="/users/userData/${user.id}">${user.lastName}</a></td>
                        <td>${user.phoneNumber}</td>
                        <td>${user.email}</td>
                        <td>${user.password}</td>
@@ -57,7 +57,7 @@
                            </c:forEach>
                        </td>
 
-                        <td><a href="/courses/${user.id}" class="btn btn-warning">Edit</a></td>
+                        <td><a href="/users/${user.id}" class="btn btn-warning">Edit</a></td>
                         <td><button class="btn btn-danger"
                                     onclick="makeDELETErequest('/users/${user.id}')"> Delete </button></td>
                     </tr>
