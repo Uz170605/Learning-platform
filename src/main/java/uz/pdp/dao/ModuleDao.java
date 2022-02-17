@@ -18,7 +18,7 @@ public class ModuleDao {
     JdbcTemplate jdbcTemplate;
 
     public List<ModuleDto> getAllModules(){
-        String sql="select id,name,isactive,price from modules;";
+        String sql="select id,name,is_active,price from modules;";
         List<ModuleDto> moduleDtoList=jdbcTemplate.query(sql,(rs,row)->{
             ModuleDto moduleDto=new ModuleDto();
             moduleDto.setId(UUID.fromString(rs.getString(1)));
@@ -42,7 +42,7 @@ public class ModuleDao {
         });
     }
     public int addModule(ModuleDto moduleDto){
-        String sql="insert into modules(name, isactive, course_id, price) VALUES (\n" +
+        String sql="insert into modules(name, is_active, course_id, price) VALUES (\n" +
                 "        '"+moduleDto.getName()+"',"+moduleDto.isActive()+",'"+moduleDto.getCourseId()+"',"+moduleDto.getPrice()+"\n" +
                 " )";
         return jdbcTemplate.update(sql);
@@ -53,7 +53,8 @@ public class ModuleDao {
         return jdbcTemplate.update(sql);
     }
     public int editModule(ModuleDto moduleDto){
-        String sql="update modules set name='"+moduleDto.getName()+"',isactive="+moduleDto.isActive()+"," +
+        String sql=
+                "update modules set name='"+moduleDto.getName()+"',is_active="+moduleDto.isActive()+"," +
                 "course_id='"+moduleDto.getCourseId()+"'," +
                 "price="+moduleDto.getPrice()+" where id='"+moduleDto.getId()+"';";
         return jdbcTemplate.update(sql);

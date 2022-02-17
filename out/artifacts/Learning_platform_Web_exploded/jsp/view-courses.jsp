@@ -64,17 +64,6 @@
          </div>
      </div>
 
-
-
-
-
-
-
-
-
-
-
-
      <script>
          function makePUTrequest() {
              $.ajax({

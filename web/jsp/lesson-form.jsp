@@ -29,61 +29,36 @@
                 <input hidden value="${selectLesson.id ==null ? null:selectLesson.id}" name="id" type="text" class="form-control">
             </div>
             <div class="form-group">
-                <label for="lessonName">Name: </label>
-                <input value="${selectLesson.name}" name="name" type="text" class="form-control" id="lessonName"
-                       placeholder="Enter lesson name here">
+                <label for="lessonName">Title: </label>
+                <input value="${selectLesson.title}" name="title" type="text" class="form-control"
+                       id="lessonName"
+                       placeholder="Enter lesson title here">
             </div>
             <div class="form-group">
-                <label for="lessonPrice">Video: </label>
-                <input value="${selectLesson.video}" name="video" type="text"
-                       class="form-control"
-                       id="lessonPrice"
-                       placeholder="Enter lesson video here">
-            </div>
-
-            <div class="form-group">
-                <label for="lessonDescription">Task: </label>
-                <textarea  name="description" type="text" class="form-control"
-                       id="lessonDescription" placeholder="Enter lesson task
-                       here">${selectLesson.tas}</textarea>
-            </div>
-
-
-            <div class="form-group">
-
-
-                <label for="authors">Authors: </label>
-
-                <select required=${selectLesson.id != null ? "": "required" }  aria-invalid="true" id="authors" placeholder="Search author name" multiple name="authorsId">
-                    <c:forEach var="author" items="${authors}">
-                        <option  value="${author.id}" >${author.firstName} ${author.lastName}</option>
+                <select class="custom-select custom-select-md mb-3" name="courseId">
+                    <c:forEach var="modul" items="${modules}">
+                        <option value="${modul.id}">${modul.name}</option>
                     </c:forEach>
+
                 </select>
-
-<%--                    <select id = "authors" class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here..">--%>
-<%--                        <c:forEach var="author" items="${authors}">--%>
-<%--                            <option value="${author.id}">${author.firstName}</option>--%>
-<%--                        </c:forEach>--%>
-<%--                    </select>--%>
-
-                </div>
-
-
-
-
-
-
-            <div class="form-check my-4">
-                <label class="form-check-label mr-2" for="status">Is active: </label>
-                <input
-                <c:if test="${selectLesson.active == true}">
-                        checked
-                </c:if>
-                        name="active"
-                        type="checkbox"
-                        class="form-check-input ml-0 mt-2 mb-0"
-                        id="status">
             </div>
+
+
+
+
+
+
+<%--            <div class="form-check my-4">--%>
+<%--                <label class="form-check-label mr-2" for="status">Is active: </label>--%>
+<%--                <input--%>
+<%--                <c:if test="${selectLesson.active == true}">--%>
+<%--                        checked--%>
+<%--                </c:if>--%>
+<%--                        name="active"--%>
+<%--                        type="checkbox"--%>
+<%--                        class="form-check-input ml-0 mt-2 mb-0"--%>
+<%--                        id="status">--%>
+<%--            </div>--%>
             <button type="submit" class="btn btn-success">Save</button>
         </form>
     </div>

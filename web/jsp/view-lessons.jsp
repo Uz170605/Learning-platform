@@ -32,10 +32,8 @@
                   <thead>
                   <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Lesson video</th>
-                      <th scope="col">Task guide</th>
-                      <th scope="col">Lesson guide</th>
+                      <th scope="col">Title</th>
+                      <th scope="col">Lesson module</th>
                       <th scope="col">Edit</th>
                       <th scope="col">Delete</th>
                   </tr>
@@ -44,7 +42,8 @@
                 <c:forEach var="lesson" step="1" items="${lessonList}">
                   <tr>
                       <th scope="row"> ⚫️ </th>
-                      <td><a href="/lessons/lessonAllData/${lesson.id}" style="color: black;">${lesson.name}</a></td>
+                      <td><a href="/lessons/lessonAllData/${lesson.id}" style="color:
+                      black;">${lesson.title}</a></td>
 <%--                      <td>--%>
 <%--                          <c:forEach var="author" items="${lesson.authors}">--%>
 <%--                              <span><a href="/users/userAllData/${author.id}" style="color: black">${author.firstName} ${author.lastName}</a>,</span>--%>
@@ -52,9 +51,9 @@
 <%--                      </td>--%>
 <%--                      <td>${lesson.price}</td>--%>
 <%--                      <td>${lesson.active == true ?"Activ":"No activ"}</td>--%>
-                      <td>${lesson.video}</td>
-                      <td>${lesson.task}</td>
-                      <td>${lesson.guide}</td>
+                      <td>${lesson.moduleDto.name}</td>
+<%--                      <td>${lesson.task}</td>--%>
+<%--                      <td>${lesson.guide}</td>--%>
                       <td><a href="/lessons/${lesson.id}" class="btn btn-warning">Edit</a></td>
 <%--                      <td><a href="lessons/delete/${lesson.id}" class="btn btn-danger" >Delete</a></td>--%>
                       <td><button class="btn btn-danger"

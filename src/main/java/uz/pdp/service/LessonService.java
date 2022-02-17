@@ -20,21 +20,21 @@ public class LessonService {
         return allLessons;
     }
 
-//    public String addLesson(LessonDto lessonDto) {
-//        if (lessonDto.getId() != null) {
-//            if (lessonDao.editLesson(lessonDto) != 0) {
-//                return "Successfuly edited!";
-//            } else {
-//                return "Could not edited!";
-//            }
-//        } else {
-//            if (lessonDao.addLesson(lessonDto) != 0) {
-//                return "Successfuly added!";
-//            } else {
-//                return "Could not added!";
-//            }
-//        }
-//  }
+    public String addLesson(LessonDto lessonDto) {
+        if (lessonDto.getId() != null) {
+            if (lessonDao.editLesson(lessonDto) != 0) {
+                return "Successfuly edited!";
+            } else {
+                return "Could not edited!";
+            }
+        } else {
+            if (lessonDao.addLesson(lessonDto) != 0) {
+                return "Successfuly added!";
+            } else {
+                return "Could not added!";
+            }
+        }
+  }
 //
 //    public String deleteLesson(UUID id) {
 //        if (lessonDao.deleteLesson(id) == 0) {
