@@ -21,7 +21,8 @@ public class CourseService {
         return allCourses;
     }
 
-    public String addCourse(CourseDto courseDto) {
+    public String
+    addCourse(CourseDto courseDto) {
         if (courseDto.getId() != null) {
             if (courseDao.editCourse(courseDto) != 0) {
                 return "Successfuly edited!";
