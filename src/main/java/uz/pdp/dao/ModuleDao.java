@@ -59,5 +59,15 @@ public class ModuleDao {
                 "price="+moduleDto.getPrice()+" where id='"+moduleDto.getId()+"';";
         return jdbcTemplate.update(sql);
     }
-
+    public List<ModuleDto> viewModuleBYPage(int startPage,int totalPage){
+        String sql="select * from modules limit "+(startPage - 1)+" offset "+totalPage+"";
+        return jdbcTemplate.query(sql,(rs,row)->{
+            ModuleDto moduleDto=new ModuleDto();
+            moduleDto.setId(UUID.fromString(rs.getString(1)));
+            moduleDto.setName(rs.getString(2));
+            moduleDto.setPrice(rs.getDouble(3));
+            moduleDto.setActive(rs.getBoolean(4));
+            return moduleDto;
+        });
+    }
 }

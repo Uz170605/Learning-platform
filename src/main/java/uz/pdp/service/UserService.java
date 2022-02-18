@@ -52,7 +52,6 @@ public class UserService {
                 return "Could not added!";
             }
         }
-
     }
 
     public String deleteUser(UUID userId) {

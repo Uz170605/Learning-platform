@@ -1,13 +1,11 @@
 package uz.pdp.controller;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import uz.pdp.dto.CourseDto;
 import uz.pdp.dto.ModuleDto;
-import uz.pdp.model.Module;
 import uz.pdp.service.CourseService;
 import uz.pdp.service.ModuleService;
 
@@ -58,4 +56,11 @@ ModuleService moduleService;
         model.addAttribute("message",str);
         return "redirect:/modules";
     }
+    @GetMapping("moduleAllData/{id}")
+    public String getModuleBYID(@PathVariable(required = false) String id,Model model){
+        UUID uuid = UUID.fromString(id);
+        ModuleDto moduleDto=moduleService.getAllModules(uuid);
+        model.addAttribute("selectModule",moduleDto);
+        return "view-select-module";
+      }
 }

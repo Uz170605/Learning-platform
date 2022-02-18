@@ -1,6 +1,7 @@
 package uz.pdp.service;
 
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uz.pdp.dao.ModuleDao;
@@ -43,5 +44,9 @@ public class ModuleService {
     public ModuleDto getAllModules(UUID uuid){
         ModuleDto moduleDto=modelDao.getModuleById(uuid);
         return moduleDto;
+    }
+    public ModuleDto viewModuleByPage(int startPage,int totalPage){
+
+        return (ModuleDto) modelDao.viewModuleBYPage(startPage,totalPage);
     }
 }
