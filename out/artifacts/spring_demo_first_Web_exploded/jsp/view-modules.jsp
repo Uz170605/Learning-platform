@@ -42,8 +42,9 @@
                 <c:forEach var="module" step="1" items="${moduleList}">
                     <tr>
                         <th scope="row"> 📀 </th>
-                        <td><a href="/modules/"${module.id}
-                               style="color: black">${module.name}</a>
+                        <td><a href="/modules/moduleAllData/${module.id}"style="color:
+                        black;">${module.name}
+                        </a>
                         </td>
                         <td>${module.active == true ? "Active":"No active"}</td>
                         <td>${module.price}</td>

@@ -59,6 +59,15 @@
                 </c:forEach>
                 </div>
             </div>
+            <div class="form-group">
+                <div class="container-md p-0">
+                    <h6 style="color: #00cc00;">Course's modules</h6>
+                    <c:forEach var="module" items="${selectCourse.module}">
+                        <h6><a href="/modules/moduleAllData/${module.id}"
+                               style="color: black">${module.name}</a> </h6>
+                    </c:forEach>
+                </div>
+            </div>
 
 
             <a href="/courses" class="btn btn-primary mt-3"> Back </a>

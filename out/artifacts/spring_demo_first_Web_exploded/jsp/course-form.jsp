@@ -58,12 +58,6 @@
                     </c:forEach>
                 </select>
 
-<%--                    <select id = "authors" class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here..">--%>
-<%--                        <c:forEach var="author" items="${authors}">--%>
-<%--                            <option value="${author.id}">${author.firstName}</option>--%>
-<%--                        </c:forEach>--%>
-<%--                    </select>--%>
-
                 </div>
 
 

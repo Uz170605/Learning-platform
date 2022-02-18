@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import uz.pdp.dto.CourseDto;
 import uz.pdp.service.CourseService;
+import uz.pdp.service.ModuleService;
 import uz.pdp.service.UserService;
 
 import java.util.List;
@@ -19,6 +20,8 @@ public class CourseController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    ModuleService moduleService;
     @GetMapping
     public String getAllCourses(Model model){
         List<CourseDto> allCourses = courseService.getAllCourses();

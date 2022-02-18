@@ -19,5 +19,5 @@ public class CourseDto {
     private boolean isActive;
     private List<UserDto> authors;
     private UUID[] authorsId;
-
+    private List<ModuleDto> module;
 }
