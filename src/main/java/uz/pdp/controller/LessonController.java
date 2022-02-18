@@ -42,6 +42,7 @@ public class LessonController {
         UUID id1 =UUID.fromString(id);
         LessonDto lessonById = lessonService.getLessonById(id1);
         model.addAttribute("authors",userService.getAllMentors());
+        model.addAttribute("modules",moduleDao.getAllModules());
         model.addAttribute("selectLesson",lessonById);
         return "lesson-form";
     }
@@ -57,13 +58,13 @@ public class LessonController {
         model.addAttribute("message",str);
         return "redirect:/lessons";
     }
-//
-//    @DeleteMapping("/{id}")
-//    public String deleteLesson(@PathVariable String id, Model model){
-//       UUID id1=UUID.fromString(id);
-//        String str = lessonService.deleteLesson(id1);
-//        model.addAttribute("message",str);
-//        return "redirect:/lessons";
-//    }
+
+    @DeleteMapping("/{id}")
+    public String deleteLesson(@PathVariable String id, Model model){
+       UUID id1=UUID.fromString(id);
+        String str = lessonService.deleteLesson(id1);
+        model.addAttribute("message",str);
+        return "redirect:/lessons";
+    }
 
 }

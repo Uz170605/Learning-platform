@@ -40,20 +40,20 @@ public class LessonDao {
 
     public int addLesson(LessonDto lessonDto) {
         String sqlQuery ="Insert into lessons(title, module_id) values('" + lessonDto.getTitle() +
-                "'," + lessonDto.getModuleDto().getId() + ","+ " + returning id";
-        String idStr = jdbcTemplate.queryForObject(sqlQuery, (rs, rowNum) -> rs.getString("id"));
-        UUID uuid = UUID.fromString(Objects.requireNonNull(idStr));
-      return 1;
+                "','" + lessonDto.getModuleId()+ "')";
+//        String idStr = jdbcTemplate.queryForObject(sqlQuery, (rs, rowNum) -> rs.getString("id"));
+//        UUID uuid = UUID.fromString(Objects.requireNonNull(idStr));
+         return jdbcTemplate.update(sqlQuery);
     }
-//
-//    public int deleteLesson(UUID id) {
-//        String sqlQuery1 = "Delete from module_lessons where lesson_id='"+id+"'";
-//       int res = jdbcTemplate.update(sqlQuery1);
+
+    public int deleteLesson(UUID id) {
+        String sqlQuery1 = "Delete from lessons where id='"+id+"'";
+       int res = jdbcTemplate.update(sqlQuery1);
 //        String sqlQuery = "Delete from lessons where id ='" + id+"'";
 //       int  res1 = jdbcTemplate.update(sqlQuery);
 //
-//        return res-res1;
-//    }
+        return res;
+    }
 
     public LessonDto getLessonById(UUID id) {
         String sqlQuery = "select * from get_all_lessons where lesson_id ='" + id+"'";
@@ -61,7 +61,7 @@ public class LessonDao {
             LessonDto lessonDto = new LessonDto();
             lessonDto.setId(UUID.fromString(rs.getString(1)));
             lessonDto.setTitle(rs.getString(2));
-            Object module = rs.getObject(6);
+            Object module = rs.getObject(3);
 
             Type listType = new TypeToken<ModuleDto>(){}.getType();
             ModuleDto moduleDto = new Gson().fromJson(module.toString(), listType);

@@ -35,15 +35,15 @@ public class LessonService {
             }
         }
   }
-//
-//    public String deleteLesson(UUID id) {
-//        if (lessonDao.deleteLesson(id) == 0) {
-//            return "Successfuly deleted!";
-//        } else {
-//        return "Could not deleted!";
-//        }
-//    }
-//
+
+    public String deleteLesson(UUID id) {
+        if (lessonDao.deleteLesson(id) == 0) {
+            return "Successfuly deleted!";
+        } else {
+        return "Could not deleted!";
+        }
+    }
+
     public LessonDto getLessonById(UUID id) {
         LessonDto lessonDto = lessonDao.getLessonById(id);
         return lessonDto;

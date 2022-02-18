@@ -51,7 +51,9 @@
 <%--                      </td>--%>
 <%--                      <td>${lesson.price}</td>--%>
 <%--                      <td>${lesson.active == true ?"Activ":"No activ"}</td>--%>
-                      <td>${lesson.moduleDto.name}</td>
+                      <td><a href="/modules/modulesAllData/${lesson.moduleDto.id}"
+                      >${lesson.moduleDto.name}</a>
+                      </td>
 <%--                      <td>${lesson.task}</td>--%>
 <%--                      <td>${lesson.guide}</td>--%>
                       <td><a href="/lessons/${lesson.id}" class="btn btn-warning">Edit</a></td>
